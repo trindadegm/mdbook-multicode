@@ -88,7 +88,7 @@ impl Preprocessor for Multicode {
                                         let first_lang = langs.first().unwrap();
 
                                         new_content.push_str(&format!(
-                                            r#"<div><select onchange="changeCodeExample('{example_class_name}', event.target.value)" value="{first_lang}" class="code-example">"#
+                                            r#"<div><select onchange="changeCodeExample('{example_class_name}', event.target.value)" value="{first_lang}" class="code-example" autocomplete="off">"#
                                         ));
                                         new_content.push_str(&lang_select_options);
                                         new_content.push_str(r#"</select></div>"#);

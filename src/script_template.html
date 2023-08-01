@@ -1,0 +1,23 @@
+<script>
+const changeCodeExample = (tabClass, to) => {
+    // console.debug(to);
+    const tabs = document.getElementsByClassName(tabClass);
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+    }
+
+    const theTab = document.getElementById(to);
+    theTab.style.display = "block";
+}
+</script>
+
+<style>
+    select.code-example {
+        color: var(--fg);
+        background-color: var(--bg);
+        border: 1px solid;
+        border-color: var(--fg);
+        padding: 2px 10px 2px 10px;
+        border-radius: 5px;
+    }
+</style>

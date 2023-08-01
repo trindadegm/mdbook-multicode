@@ -64,6 +64,7 @@ impl Preprocessor for Multicode {
                             ParseState::Nothing => {
                                 if self.multicode_regex.is_match(line) {
                                     parse_state = ParseState::Multicode;
+                                    new_content.push('\n');
                                 } else {
                                     new_content.push_str(line);
                                     new_content.push('\n');
@@ -106,6 +107,9 @@ impl Preprocessor for Multicode {
                                         new_content.push_str(&format!(
                                             r#"<script>(()=>{{changeCodeExample("{example_class_name}", "{example_class_name}-{first_lang}")}})()</script>"#
                                         ));
+
+                                        // Blank line, finally
+                                        new_content.push_str("\n\n");
                                     }
                                     lang_example_no += 1;
                                 } else if let Some(captures) = self.code_start.captures(line) {

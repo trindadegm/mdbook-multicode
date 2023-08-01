@@ -137,7 +137,7 @@ impl Preprocessor for Multicode {
     }
 
     fn supports_renderer(&self, renderer: &str) -> bool {
-        renderer == "html"
+        renderer == "html" || renderer == "markdown"
     }
 }
 
@@ -148,6 +148,10 @@ fn html_escape(text_to_escape: impl AsRef<str>) -> String {
     text = text.replace('>', "&gt;");
     text = text.replace('"', "&quot;");
     text = text.replace('\'', "&#39;");
+    // Empty lines are cursed on markdown+HTML, so cursed I had to do this
+    // The empty emphasis text should render as nothing, but avoid leaving a
+    // blank line on the markdown book
+    text = text.replace("\n\n", "\n<em></em>\n");
     text
 }
 

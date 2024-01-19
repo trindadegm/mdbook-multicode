@@ -2,6 +2,8 @@
 name = "mdbook-multicode"
 version = "0.1.0"
 edition = "2021"
+description = "Allows you to give multilanguage code examples, toggled by a spinner"
+license = "Zlib"
 
 [lib]
 name = "mdbook_multicode"
